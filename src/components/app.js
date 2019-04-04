@@ -1,8 +1,8 @@
 import React from 'react';
-import Greeting from './greeting';
-import userObject from './userObject';
 
 const App = () =>
-  <Greeting name={userObject.name} luckyNumber={userObject.luckyNumber} />;
+  <div className="container">
+    <h1>Welcome to React</h1>
+  </div>;
 
 export default App;
