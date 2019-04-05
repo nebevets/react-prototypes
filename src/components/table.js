@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Table = ({students}) => {
-    const tableRows = students.map( student => 
+    const studentRows = students.map( student => 
         <tr key={student.id}>
             <td>{student.student}</td>
             <td>{student.course}</td>
@@ -18,7 +18,7 @@ const Table = ({students}) => {
                 </tr>
             </thead>
             <tbody>
-                {tableRows}
+                {studentRows}
             </tbody>
         </table>
     )
