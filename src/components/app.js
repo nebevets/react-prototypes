@@ -1,8 +1,14 @@
 import React from 'react';
+import Stopwatch from './stopwatch';
 
-const App = () =>
-  <div className="container">
-    <h1>Welcome to React</h1>
-  </div>;
+
+const App = () => {
+    return (
+        <div className="container">
+            <h1 className="text-center">Stop Watch</h1>
+            <Stopwatch />
+        </div>
+    );
+}
 
 export default App;
