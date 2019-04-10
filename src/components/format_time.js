@@ -3,12 +3,6 @@ import React, {Component} from 'react';
 class FormatTime extends Component{
     constructor(props){
         super(props);
-        this.state = {
-            hour: 0,
-            min: 0,
-            sec: 0,
-            ms: 0
-        };
         this.timerStyle = {
             display: 'inline-block',
             position: 'relative',
@@ -18,23 +12,23 @@ class FormatTime extends Component{
         };
     }
     render(){
-        const {hour, min, sec, ms} = this.state;
+        const {hour, min, sec, ms} = this.millisecondsToTime();
         return(
             <div style={this.timerStyle}>
-                {this.leadingZero(hour)}:{this.leadingZero(min)}:{this.leadingZero(sec)}.{this.trailingZero(ms)}
+                {hour}:{min}:{sec}.{ms}
             </div>
         );
     }
-    componentWillReceiveProps(nextProps){
-        const {elapsed} = nextProps;
+    millisecondsToTime = () => {
+        const {elapsed} = this.props;
         const sec = elapsed / 1000;
         const min = sec / 60;
-        this.setState({
-            hour: Math.floor(min / 60),
-            min: Math.floor(min % 60),
-            sec: Math.floor(sec % 60),
-            ms: Math.floor(elapsed % 100)
-        });
+        return {
+            hour: this.leadingZero(Math.floor(min / 60)),
+            min: this.leadingZero(Math.floor(min % 60)),
+            sec: this.leadingZero(Math.floor(sec % 60)),
+            ms: this.leadingZero(Math.floor(elapsed % 100),)
+        };
     }
     leadingZero(number){
         if(number < 10){
