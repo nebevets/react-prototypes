@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
 import Field from './field';
 
+const labels = {
+  firstName: "First Name",
+  lastName: "Last Name",
+  phone: "Phone",
+  email: "Email",
+};
+
 class ContactForm extends Component{
     constructor(props){
         super(props);
@@ -23,24 +30,23 @@ class ContactForm extends Component{
     }
     handleSubmit = (event) => {
       event.preventDefault();
-      console.log(this.state.form);
     }
     render(){
-      const {firstName, lastName, phone, email} = this.state.form;
       return (
         <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label>First Name: </label><input onChange={this.handleInputChange} value={firstName} type="text" name="firstName" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label>Last Name: </label><input onChange={this.handleInputChange} value={lastName} type="text" name="lastName" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label>Phone: </label><input onChange={this.handleInputChange} value={phone} type="text" name="phone" className="form-control" />
-          </div>
-          <div className="form-group">
-            <label>Email: </label><input onChange={this.handleInputChange} value={email} type="text" name="email" className="form-control" />
-          </div>
+          {
+            Object
+              .keys(this.state.form)
+              .map((key, index) => <Field
+                            className="form-control"
+                            key={index}
+                            label={labels[key]}
+                            name={key}
+                            onChange={this.handleInputChange}
+                            type="text"
+                            value={this.state.form[key]}
+                          />)
+          }
           <button>Add Contact</button>
         </form>
       );

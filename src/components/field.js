@@ -1,21 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Field extends Component{
-    constructor(props){
-        super(props);
-        this.name = props.name;
-    }
-    render(){
-      const name = this.name;
-      return (
-        <div>
-          <label htmlFor={name}>
-            {name} 
-          </label>
-          <input name={name} type="text" />
-        </div>
-      );
-    }
+const Field = ({className, label, name, onChange, type, value}) => {
+  return (
+    <div className="form-group">
+      <label>
+        {label}: 
+      </label>
+      <input
+        onChange={onChange}
+        value={value}
+        type={type}
+        name={name}
+        className={className}
+      />
+    </div>
+  );
 }
-
 export default Field;
