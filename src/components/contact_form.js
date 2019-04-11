@@ -29,14 +29,18 @@ class ContactForm extends Component{
       });
     }
     handleSubmit = (event) => {
+      const {add} = this.props;
+      const {form} = this.state;
+      add(form);
       event.preventDefault();
     }
     render(){
+      const {form} = this.state;
       return (
         <form onSubmit={this.handleSubmit}>
           {
             Object
-              .keys(this.state.form)
+              .keys(form)
               .map((key, index) => <Field
                             className="form-control"
                             key={index}
@@ -44,7 +48,7 @@ class ContactForm extends Component{
                             name={key}
                             onChange={this.handleInputChange}
                             type="text"
-                            value={this.state.form[key]}
+                            value={form[key]}
                           />)
           }
           <button>Add Contact</button>

@@ -7,11 +7,11 @@ const Field = ({className, label, name, onChange, type, value}) => {
         {label}: 
       </label>
       <input
-        onChange={onChange}
-        value={value}
-        type={type}
-        name={name}
         className={className}
+        name={name}
+        onChange={onChange}
+        type={type}
+        value={value}
       />
     </div>
   );
