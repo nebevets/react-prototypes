@@ -12,6 +12,7 @@ const Field = ({className, label, name, onChange, type, value}) => {
         onChange={onChange}
         type={type}
         value={value}
+        required
       />
     </div>
   );

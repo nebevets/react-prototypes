@@ -1,10 +1,10 @@
 import React from 'react';
 import ContactCard from './contact_card';
 
-const ContactList = ({contacts}) => {
+const ContactList = ({contacts, removeContact}) => {
     const list = contacts.map(
-        contact => 
-            <ContactCard key={contact.id} contact={contact} />
+        (contact, index) => 
+            <ContactCard key={index} contact={contact} removeContact={removeContact}/>
     );
     return (
         <div className="col-8">

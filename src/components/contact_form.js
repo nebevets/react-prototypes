@@ -8,17 +8,21 @@ const labels = {
   email: "Email",
 };
 
+const createBlankForm = () => {
+  const blankForm = {};
+  const keys = Object.keys(labels);
+  for (const key of keys){
+    blankForm[key] = '';
+  }
+  return blankForm;
+}
+
 class ContactForm extends Component{
     constructor(props){
         super(props);
         this.state = {
-          form: {
-            firstName: '',
-            lastName: '',
-            phone: '',
-            email: '',
-          },
-        }
+          form: createBlankForm()
+        };
     }
     handleInputChange = (event) => {
       const {name, value} = event.target;
@@ -32,7 +36,14 @@ class ContactForm extends Component{
       const {add} = this.props;
       const {form} = this.state;
       add(form);
+      this.resetForm();
       event.preventDefault();
+    }
+    resetForm = () => {
+      const newForm = createBlankForm();
+      this.setState({
+        form: newForm
+      });
     }
     render(){
       const {form} = this.state;
@@ -41,17 +52,19 @@ class ContactForm extends Component{
           {
             Object
               .keys(form)
-              .map((key, index) => <Field
-                            className="form-control"
-                            key={index}
-                            label={labels[key]}
-                            name={key}
-                            onChange={this.handleInputChange}
-                            type="text"
-                            value={form[key]}
-                          />)
+              .map((key, index) =>
+                <Field
+                  className="form-control"
+                  key={index}
+                  label={labels[key]}
+                  name={key}
+                  onChange={this.handleInputChange}
+                  type="text"
+                  value={form[key]}
+                />)
           }
-          <button>Add Contact</button>
+          <button className="btn btn-outline-primary mr-1">Add Contact</button>
+          <button className="btn btn-outline-secondary mr-1" type="button" onClick={this.resetForm}>Reset Form</button>
         </form>
       );
     }

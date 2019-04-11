@@ -1,12 +1,21 @@
 import React from 'react';
 
+const removeStyle = {
+    float: 'right',
+    cursor: 'pointer'
+};
+
 const ContactCard = (props) => {
-    const {firstName, lastName, phone, email} = props.contact;
+    const {email, firstName, id, lastName, phone} = props.contact;
+    const {removeContact} = props;
     return (
         <div className="col-6 my-3">
             <div className="card">
                 <div className="card-header">
                     {lastName}
+                    <div className="badge badge-danger" style={removeStyle} onClick={() => removeContact(id)}>
+                        x
+                    </div>
                 </div>
                 <div className="card-block">
                     <h4 className="card-title">{firstName} {lastName}</h4>

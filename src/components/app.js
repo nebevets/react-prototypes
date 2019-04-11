@@ -12,9 +12,27 @@ class App extends Component{
     }
     addContact = (contact) => {
         const {contacts} = this.state;
+        if (!contacts.length) {
+            contact.id = 10101;
+            contacts.push(contact)
+            this.setState({
+                contacts
+            });
+            return;
+        }
+        const sortedById = contacts.sort((a, b) => b.id - a.id)
+        const nextId = sortedById[0].id + 1;
+        contact.id = nextId;
         this.setState({
             contacts: [contact, ...contacts]
         });
+    }
+    removeContact = (id) => {
+        const {contacts} = this.state;
+        const newContacts = contacts.filter(contact => contact.id !== id);
+        this.setState({
+            contacts: newContacts
+        })
     }
     render(){
         const {contacts} = this.state;
@@ -23,9 +41,9 @@ class App extends Component{
                 <h1 className="text-center">Address Book</h1>
                 <div className="row">
                     <div className="col-4">
-                        <ContactForm add={this.addContact} />
+                        <ContactForm add={this.addContact}/>
                     </div>
-                    <ContactList contacts={contacts} />
+                    <ContactList contacts={contacts} removeContact={this.removeContact}/>
                 </div>
             </div>);
     }
