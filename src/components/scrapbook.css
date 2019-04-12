@@ -5,6 +5,7 @@
   width: 80vw;
 }
 .scrapbook-image {
+  position: absolute;
   width: 20%;
   border: 10px solid aliceblue;
 }
