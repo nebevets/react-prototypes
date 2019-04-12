@@ -24,4 +24,6 @@
 }
 .modal img {
   width: 70%;
+  height: 80vh;
+  object-fit: contain;
 }
