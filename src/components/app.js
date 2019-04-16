@@ -14,9 +14,8 @@ class App extends Component{
         const {contacts} = this.state;
         if (!contacts.length) {
             contact.id = 10101;
-            contacts.push(contact)
             this.setState({
-                contacts
+                contacts: [contact]
             });
             return;
         }
