@@ -1,8 +1,10 @@
 import React from 'react';
+import MovieList from './movie_list';
 
-const App = () =>
+const App = (props) =>
   <div className="container">
-    <h1>Welcome to React</h1>
+    <h1 className="text-center">Apple iTunes</h1>
+    <MovieList />
   </div>;
 
 export default App;
