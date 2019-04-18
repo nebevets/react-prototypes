@@ -1,0 +1,17 @@
+.error {
+  position: absolute;
+  width: 80vw;
+  right: 2vw;
+  top: 15vh;
+}
+.errorStack {
+  color: darkred;
+  font-weight: 800;
+}
+.friendlyError {
+  color: aliceblue;
+  background: lightblue;
+  border: 5px solid lightskyblue;
+  border-radius: 5px;
+  padding: 2vh 2vw;
+}

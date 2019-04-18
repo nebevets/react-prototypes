@@ -1,19 +1,34 @@
 import React from 'react';
+import './movie.css';
 
-const Movie = (props) => {
+const Movie = ({movie, number}) => {
+  const imageSrc = movie['im:image'][2].label;
+  const title = movie.title.label;
+  const summary = movie.summary.label;
+  const releaseDate = movie['im:releaseDate'].attributes.label;
+  const rights = movie.rights ? movie.rights.label : null;
   return(
-    <div>
-      <h3>Movie</h3>
+    <div className="movie">
+      <span>{number}</span>
+      <img className="image" src={imageSrc} alt="{title}" title={title} />
+      <h3 className="title">
+        {title}
+      </h3>
+      <p className="summary">
+        {summary}
+      </p>
+      <p className="releaseDate">
+        {releaseDate}
+      </p>
+      {
+        rights
+          ? <dd className="rights">
+              {rights}
+            </dd>
+          : null
+      }
     </div>
   );
 }
 
 export default Movie;
-
-
-{/* <div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div> */}

@@ -1,0 +1,27 @@
+.movie {
+  position: relative;
+  padding: 5vh 2vw;
+  float: right;
+  list-style-type: decimal;
+  border-bottom: 1px solid lightgray;
+}
+.movie .title {
+  font-size: large;
+}
+.movie .summary {
+  font-size: small;
+}
+.movie .releaseDate {
+  font-size: x-small;
+}
+.movie .rights {
+  font-size: xx-small
+}
+.movie span {
+  position: absolute;
+  left: 0;
+  top: 15vh;
+  font-size: xx-large;
+  font-weight: 900;
+  opacity: .75;
+}
