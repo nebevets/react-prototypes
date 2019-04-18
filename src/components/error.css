@@ -3,6 +3,7 @@
   width: 80vw;
   right: 2vw;
   top: 15vh;
+  text-align: center;
 }
 .errorStack {
   color: darkred;
@@ -11,7 +12,11 @@
 .friendlyError {
   color: aliceblue;
   background: lightblue;
-  border: 5px solid lightskyblue;
+  border: 5px solid maroon;
   border-radius: 5px;
-  padding: 2vh 2vw;
+}
+.error .url {
+  font-size: small;
+  background-color: maroon;
+  color: whitesmoke;
 }

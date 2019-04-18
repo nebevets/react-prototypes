@@ -30,8 +30,9 @@ class MovieList extends Component{
   render(){
     const {movies, error} = this.state;
     if (error){
+      console.dir(error);
       return(
-        <Error stack={error.stack}/>
+        <Error stack={error.stack} url={error.config.url}/>
       );
     }
     const movieComponents = movies.map((movie, index) => 
