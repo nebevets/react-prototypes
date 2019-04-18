@@ -25,3 +25,6 @@
   font-weight: 900;
   opacity: .75;
 }
+.movie:last-child {
+  height: 100vh;
+}
