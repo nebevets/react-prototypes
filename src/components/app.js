@@ -8,6 +8,7 @@ const appTitle = {
   margin: 0,
   padding: 0,
   opacity: .5,
+  fontSize: '1.75rem',
 }
 
 const App = () =>

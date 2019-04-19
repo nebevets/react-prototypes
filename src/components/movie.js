@@ -1,36 +1,61 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Video from './video';
 import './movie.css';
 
-const Movie = ({movie, number}) => {
-  const imageSrc = movie['im:image'][2].label;
-  const title = movie.title.label;
-  const summary = movie.summary.label;
-  const releaseDate = movie['im:releaseDate'].attributes.label;
-  const rights = movie.rights ? movie.rights.label : null;
-  return(
-    <div className="movie">
-      <span>{number}</span>
-      <img className="image" src={imageSrc} alt="{title}" title={title} />
-      <div className="details">
-        <p className="title">
-          {title}
-        </p>
-        <p className="summary">
-          {summary}
-        </p>
-        <p className="releaseDate">
-          {releaseDate}
-        </p>
+class Movie extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      isPreviewOpen: false
+    }
+  }
+  handleClick = (event) => {
+    event.preventDefault();
+    const {isPreviewOpen} = this.state;
+    this.setState({
+      isPreviewOpen: !isPreviewOpen
+    });
+  }
+  render(){
+    const {movie, number} = this.props;
+    const {isPreviewOpen} = this.state;
+    const {href, type} = movie.link[1].attributes;
+    return(
+      <div className="movie">
+        <span>{number}</span>
+        <img
+          onClick={this.handleClick}
+          className="image"
+          src={movie['im:image'][2].label}
+          alt={movie.title.label}
+          title="click for preview"
+        />
+        <div className="details">
+          <p className="title">
+            {movie.title.label}
+          </p>
+          <p className="summary">
+            {movie.summary.label}
+          </p>
+          <p className="releaseDate">
+            {movie['im:releaseDate'].attributes.label}
+          </p>
+          {
+            movie.rights
+              ? <p className="rights">
+                  {movie.rights.label}
+                </p>
+              : null
+          }
+        </div>
         {
-          rights
-            ? <p className="rights">
-                {rights}
-              </p>
+          isPreviewOpen
+            ? <Video href={href} type={type} closeVideo={this.handleClick} />
             : null
         }
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Movie;

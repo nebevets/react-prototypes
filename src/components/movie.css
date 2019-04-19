@@ -5,8 +5,20 @@
   list-style-type: decimal;
   border-bottom: 1px solid lightgray;
 }
+.movie img {
+  cursor: pointer;
+}
+.movie span {
+  position: absolute;
+  left: 10px;
+  top: 15vh;
+  font-size: xx-large;
+  font-weight: 900;
+  opacity: .75;
+}
 .movie .details {
   background-color: rgba(255, 255, 255, 0.5);
+  position: relative;
 }
 .movie .title {
   font-size: large;
@@ -19,14 +31,6 @@
 }
 .movie .rights {
   font-size: xx-small
-}
-.movie span {
-  position: absolute;
-  left: 10px;
-  top: 15vh;
-  font-size: xx-large;
-  font-weight: 900;
-  opacity: .75;
 }
 .movie:last-child {
   height: 100vh;
