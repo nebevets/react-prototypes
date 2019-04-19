@@ -22,7 +22,7 @@
 }
 .movie span {
   position: absolute;
-  left: 0;
+  left: 10px;
   top: 15vh;
   font-size: xx-large;
   font-weight: 900;
