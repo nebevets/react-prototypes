@@ -10,13 +10,13 @@
   font-weight: 800;
 }
 .friendlyError {
-  color: aliceblue;
-  background: lightblue;
+  color: darkred;
+  background: white;
   border: 5px solid maroon;
   border-radius: 5px;
 }
 .error .url {
   font-size: small;
   background-color: maroon;
-  color: whitesmoke;
+  color: white;
 }

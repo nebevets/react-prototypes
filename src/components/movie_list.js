@@ -11,7 +11,7 @@ class MovieList extends Component{
     }
   }
   componentDidMount(){
-    const iTunesMovieURL = 'http://ax.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topMovies/json';
+    const iTunesMovieURL = 'http://x.itunes.apple.com/WebObjects/MZStoreServices.woa/ws/RSS/topMovies/json';
     axios
       .get(iTunesMovieURL)
       .then((response) => {
@@ -30,7 +30,6 @@ class MovieList extends Component{
   render(){
     const {movies, error} = this.state;
     if (error){
-      console.dir(error);
       return(
         <Error stack={error.stack} url={error.config.url}/>
       );
@@ -41,11 +40,7 @@ class MovieList extends Component{
     return(
       <div className="movieList">
         {
-          movieComponents.length
-            ? <div>
-                {movieComponents}
-              </div>
-            : null
+          movieComponents.length && movieComponents
         }
       </div>
     );

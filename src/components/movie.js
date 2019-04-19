@@ -11,22 +11,24 @@ const Movie = ({movie, number}) => {
     <div className="movie">
       <span>{number}</span>
       <img className="image" src={imageSrc} alt="{title}" title={title} />
-      <h3 className="title">
-        {title}
-      </h3>
-      <p className="summary">
-        {summary}
-      </p>
-      <p className="releaseDate">
-        {releaseDate}
-      </p>
-      {
-        rights
-          ? <dd className="rights">
-              {rights}
-            </dd>
-          : null
-      }
+      <div className="details">
+        <p className="title">
+          {title}
+        </p>
+        <p className="summary">
+          {summary}
+        </p>
+        <p className="releaseDate">
+          {releaseDate}
+        </p>
+        {
+          rights
+            ? <p className="rights">
+                {rights}
+              </p>
+            : null
+        }
+      </div>
     </div>
   );
 }
