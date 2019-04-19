@@ -21,7 +21,6 @@ class MovieList extends Component{
         })
       })
       .catch((error) => {
-        console.log(error);
         this.setState({
           error
         })
