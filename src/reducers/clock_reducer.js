@@ -4,6 +4,10 @@ const DEFAULT_STATE = {
 
 export const clockReducer = (state = DEFAULT_STATE, action) => {
   switch(action.type){
+    case 'UPDATE_TIME':
+      return {
+        time: new Date().toLocaleTimeString()
+      }
     default:
       return state;
   }

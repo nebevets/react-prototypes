@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {updateTime} from '../actions';
 
 class Clock extends Component{
+  componentDidMount(){
+    const {updateTime} = this.props;
+    setInterval(updateTime, 1000);
+  }
   render(){
     const {time} = this.props;
     return(
@@ -19,4 +24,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Clock);
+export default connect(mapStateToProps, {
+  updateTime
+})(Clock);
