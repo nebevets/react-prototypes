@@ -1,5 +1,5 @@
 const DEFAULT_STATE = {
-  time: null
+  time: new Date().toLocaleTimeString()
 };
 
 export const clockReducer = (state = DEFAULT_STATE, action) => {
